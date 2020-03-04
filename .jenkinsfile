@@ -4,49 +4,47 @@ agent any
 
 stages
 {
+
 stage('Build')
 {
 steps
 {
-echo 'Building the Code'
+bat "mvn clean"
+}
 }
 
-}
-stage('deploy')
+stage('Deploy')
 {
-steps{
-echo 'deploying the code'
-}
-
-}
-stage('test')
+steps
 {
-steps{
-sh "mvn test"
+echo 'Deploying the Test'
+}
 }
 
+stage('Test')
+{
+steps
+{
+bat "mvn test"
+}
 }
 
 stage('Unit Testing')
 {
-steps{
-sh "mvn compile"
+steps
+{
+bat "mvn compile"
+}
 }
 
-}
+
 stage('Release')
 {
-when{
-branch "origin/master"
+steps
+{
+echo 'Releasing to Prod'
 }
-steps{
-echo 'releasing the project'
-}
-
 }
 
-
-
 }
-
 }
