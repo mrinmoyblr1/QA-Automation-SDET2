@@ -21,6 +21,7 @@ public class SetDemo {
 		// toCharArray is a String object return a Char Array		
 		
 		Set<Character> set = new HashSet<Character>(); 
+		
 		// HashSet is a class which implements Set interface	
 		
 		int ctr = 0;
